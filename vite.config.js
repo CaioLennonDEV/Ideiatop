@@ -27,5 +27,10 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy,
     },
+    preview: {
+      host: '0.0.0.0',                       // obrigatório para Render
+      port: parseInt(process.env.PORT) || 4173, // porta fornecida pelo Render
+      allowedHosts: ['ideiatop.onrender.com'], // permite seu domínio
+    },
   };
 });
