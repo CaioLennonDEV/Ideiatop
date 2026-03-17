@@ -1,26 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   html {
-    @apply antialiased;
+    @apply antialiased select-none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: 'Outfit', sans-serif;
   }
+  
   body {
-    color: #4a331f;
-    background-color: #faf6f0;
+    @apply text-crust-900 bg-crust-50 overflow-x-hidden;
+    /* Prevent pull-to-refresh and bounce on mobile */
+    overscroll-behavior-y: none;
   }
 }
 
-/* Scroll suave para áreas com overflow */
-.overflow-x-auto {
-  -webkit-overflow-scrolling: touch;
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-md border border-white/10;
+  }
 }
 
-/* Limite de linhas para descrição no card */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-crust-200 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-crust-300;
+}
+
+/* App-like animations */
+.page-transition {
+  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
