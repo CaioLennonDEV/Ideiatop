@@ -8,8 +8,11 @@ const WEBHOOK_URL = import.meta.env.VITE_AI_WEBHOOK_URL;
  */
 const getRequestUrl = () => {
   if (!WEBHOOK_URL || !WEBHOOK_URL.trim()) return '';
-  if (import.meta.env.DEV) return '/api/ai-webhook';
-  return WEBHOOK_URL;
+  
+  // Usamos o proxy /api/ai-webhook tanto em desenvolvimento quanto em produção.
+  // Em produção (Render), o servidor Vite Preview ou Redirects devem tratar o redirecionamento
+  // para evitar problemas de CORS/headers duplicados vindos do servidor n8n.
+  return '/api/ai-webhook';
 };
 
 /**
