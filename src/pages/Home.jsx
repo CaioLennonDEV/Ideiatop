@@ -54,7 +54,7 @@ export function Home() {
       </header>
 
       {/* Conteúdo principal */}
-      <main className="max-w-6xl mx-auto px-6 py-8 pb-32">
+      <main className="max-w-6xl mx-auto px-6 py-8 pb-12">
         <div className="mb-8 page-transition">
           <div className="flex items-center gap-2 mb-2">
             <div className="h-1 w-8 bg-pizza-500 rounded-full"></div>
@@ -67,27 +67,6 @@ export function Home() {
           <Menu onAddToOrder={addItem} />
         </div>
       </main>
-
-      {/* Bottom Navigation (App-like feel) */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-40 md:hidden">
-        <nav className="glass rounded-[2rem] px-4 py-3 flex items-center justify-around shadow-2xl border-white/40">
-          <button className="flex flex-col items-center gap-1 text-pizza-600">
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
-            <span className="text-[10px] font-bold uppercase tracking-tighter">Início</span>
-          </button>
-          <button onClick={() => setCartOpen(true)} className="flex flex-col items-center gap-1 text-crust-400 hover:text-pizza-500 transition-colors">
-            <div className="relative">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-              {itemCount > 0 && <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-pizza-500 rounded-full border-2 border-white"></div>}
-            </div>
-            <span className="text-[10px] font-bold uppercase tracking-tighter">Pedido</span>
-          </button>
-          <button className="flex flex-col items-center gap-1 text-crust-400 hover:text-pizza-500 transition-colors">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-            <span className="text-[10px] font-bold uppercase tracking-tighter">Perfil</span>
-          </button>
-        </nav>
-      </div>
 
       {/* Sidebar/Modal de pedidos */}
       <Cart
